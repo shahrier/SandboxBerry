@@ -97,5 +97,35 @@ namespace SandboxberryTests
                 logger.DebugFormat("Resource: {0}", n);
 
         }
+
+        [TestMethod]
+        public void RememberRecursiveIdDoesNotThrowOnMissingField()
+        {
+            var doc = new XmlDocument();
+            var sObj = new SandboxberryLib.SalesforcePartnerApi.sObject();
+            sObj.type = "Dummy";
+            sObj.Id = "1";
+
+            var nameEl = doc.CreateElement("Name");
+            nameEl.InnerText = "Test";
+            sObj.Any = new XmlElement[] { nameEl };
+
+            var transformer = new ObjectTransformer();
+            transformer.RecursiveRelationshipField = "ParentId";
+            transformer.SbbObjectInstructions = new SbbObject();
+            transformer.SbbObjectInstructions.SbbFieldOptions = new List<SbbFieldOption>();
+            transformer.LookupsToReprocess = new List<LookupInfo>();
+            transformer.ObjectRelationships = new Dictionary<string, string>();
+            transformer.RelationMapper = new RelationMapper();
+            transformer.InactiveUserIds = new List<string>();
+            transformer.MissingUserIds = new List<string>();
+
+            var wrap = new ObjectTransformer.sObjectWrapper();
+            wrap.sObj = sObj;
+
+            transformer.ApplyTransformations(wrap);
+
+            Assert.IsNull(wrap.RecursiveRelationshipOriginalId);
+        }
     }
 }
