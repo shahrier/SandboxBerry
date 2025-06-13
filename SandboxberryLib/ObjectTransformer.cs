@@ -163,7 +163,10 @@ namespace SandboxberryLib
         private void RememberRecursiveId(ObjectTransformer.sObjectWrapper wrap, string recursiveField)
         {
             XmlElement recursiveNode = wrap.sObj.Any.FirstOrDefault(e => e.LocalName == recursiveField);
-            wrap.RecursiveRelationshipOriginalId = recursiveNode.InnerText;
+            if (recursiveNode != null)
+            {
+                wrap.RecursiveRelationshipOriginalId = recursiveNode.InnerText;
+            }
         }
 
         /// <summary>
