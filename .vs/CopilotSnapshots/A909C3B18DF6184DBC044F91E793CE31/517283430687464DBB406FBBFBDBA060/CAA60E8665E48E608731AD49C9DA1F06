@@ -1,16 +1,5 @@
-# SandboxBerry
+﻿# SandboxBerry
 A tool for copying test data into Salesforce sandboxes
-
-# What's New
-
-## Recent Updates
-
-- **Merged Feature:** Reprocess missing lookups after import ([#5](https://github.com/codeulike/SandboxBerry/issues/5))
-- **Added support for "Limit":** You can now limit the number of records transferred per object.
-- **Added support to save (source/target) passwords:** Credentials can be saved for convenience.
-- **Updated to .NET Framework 4.8:** The application now targets .NET 4.8 for improved compatibility and security.
-- **Updated Log4Net NuGet package:** Logging dependencies have been updated.
-- **Cleaned up using statements:** Codebase maintenance for clarity and performance.
 
 # What is this for?
 
@@ -53,8 +42,8 @@ SandboxBerry is Open Source under the GPL2 license.
 
 # Downloading
 
-SandboxBerry is a windows application written in C# and uses the .NET Framework 4.8.  
-You'll need .NET 4.8 Framework installed already (most recent PCs will have it)  
+SandboxBerry is a windows application written in C# and uses the .NET Framework 4.5.  
+You'll need .NET 4.5 Framework installed already (most recent PCs will have it)  
 
 * Download the latest Zip from the [GitHub Releases](https://github.com/codeulike/SandboxBerry/releases) page
 * Unzip it in a folder and run SandboxBerry.exe
@@ -63,8 +52,8 @@ You'll need .NET 4.8 Framework installed already (most recent PCs will have it)
 # Running from Source
 
 Visual Studio 2012 was used for the initial project but it should be easily loadable in more recent versions of VS.  
-Download the solution and open it in VS.  
-You'll need .NET 4.8 installed.
+Download the solution and ooen it in VS.  
+You'll need .NET 4.5 installed.
 
 # Getting Started
 
